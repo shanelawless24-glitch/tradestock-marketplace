@@ -5,13 +5,13 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 210 40% 98%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
@@ -22,18 +22,24 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 199 89% 48%;
+    --ring: 221 83% 53%;
     --radius: 0.5rem;
+    
+    /* Brand Colors */
+    --navy: 222 47% 16%;
+    --navy-light: 222 30% 26%;
+    --brand-blue: 217 91% 60%;
+    --brand-blue-dark: 221 83% 53%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 47% 11%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
-    --primary: 199 89% 48%;
+    --primary: 217 91% 60%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -45,7 +51,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 199 89% 48%;
+    --ring: 217 91% 60%;
   }
 }
 
@@ -170,12 +176,12 @@
 
 /* Gradient text */
 .gradient-text {
-  @apply bg-gradient-to-r from-tradestock-600 to-tradestock-400 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-brand-blue to-brand-blue-light bg-clip-text text-transparent;
 }
 
 /* Countdown styles */
 .countdown-box {
-  @apply flex flex-col items-center justify-center min-w-[60px] p-2 bg-tradestock-900 text-white rounded-lg;
+  @apply flex flex-col items-center justify-center min-w-[60px] p-2 bg-navy text-white rounded-lg;
 }
 
 .countdown-number {
@@ -183,5 +189,35 @@
 }
 
 .countdown-label {
-  @apply text-xs text-tradestock-200 uppercase tracking-wider;
+  @apply text-xs text-gray-300 uppercase tracking-wider;
+}
+
+/* Navy background utility */
+.bg-navy {
+  background-color: hsl(var(--navy));
+}
+
+.bg-navy-light {
+  background-color: hsl(var(--navy-light));
+}
+
+.text-navy {
+  color: hsl(var(--navy));
+}
+
+/* Brand blue utilities */
+.bg-brand-blue {
+  background-color: hsl(var(--brand-blue));
+}
+
+.bg-brand-blue-dark {
+  background-color: hsl(var(--brand-blue-dark));
+}
+
+.text-brand-blue {
+  color: hsl(var(--brand-blue));
+}
+
+.border-brand-blue {
+  border-color: hsl(var(--brand-blue));
 }

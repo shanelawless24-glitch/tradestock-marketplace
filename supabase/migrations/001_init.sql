@@ -912,3 +912,23 @@ ALTER TABLE listings REPLICA IDENTITY FULL;
 -- ALTER PUBLICATION supabase_realtime ADD TABLE messages;
 -- ALTER PUBLICATION supabase_realtime ADD TABLE support_messages;
 -- ALTER PUBLICATION supabase_realtime ADD TABLE listings;
+
+-- ============================================
+-- SEED DATA
+-- ============================================
+
+-- Create admin user (run this after setting up auth)
+-- Note: This creates the profile entry. You'll need to create the auth user separately
+-- in the Supabase dashboard or via the signup API with email: shanelawless24@gmail.com
+INSERT INTO profiles (id, role, is_active, email, full_name)
+VALUES (
+  '00000000-0000-0000-0000-000000000001',
+  'admin',
+  true,
+  'shanelawless24@gmail.com',
+  'Shane Lawless'
+)
+ON CONFLICT (id) DO UPDATE SET
+  role = 'admin',
+  is_active = true,
+  full_name = 'Shane Lawless';

@@ -32,10 +32,15 @@ import {
   FileText,
   Menu,
   LogOut,
+  Rocket,
+  Clock,
+  Tag,
+  Shield,
   type LucideIcon,
 } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { isLaunchPassed } from "@/lib/constants";
+import Image from "next/image";
 
 type UserRole = "admin" | "sdr" | "dealer";
 
@@ -65,6 +70,10 @@ const iconMap: Record<string, LucideIcon> = {
   Trophy,
   Euro,
   FileText,
+  Rocket,
+  Clock,
+  Tag,
+  Shield,
 };
 
 interface NavItem {
@@ -92,7 +101,7 @@ function NavLink({
       className={cn(
         "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
         isActive
-          ? "bg-primary text-primary-foreground"
+          ? "bg-brand-blue/10 text-brand-blue"
           : "text-muted-foreground hover:bg-accent hover:text-foreground",
         isLocked && "opacity-50 cursor-not-allowed hover:bg-transparent"
       )}
@@ -171,13 +180,13 @@ export function NavigationDrawer({
       {/* Header */}
       <div className="p-4 border-b">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-tradestock-500 to-tradestock-700 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">TS</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold text-lg leading-tight">TradeStock</span>
-            <span className="text-xs text-muted-foreground">Marketplace</span>
-          </div>
+          <Image
+            src="/logo.png"
+            alt="TradeStock"
+            width={140}
+            height={32}
+            className="h-8 w-auto"
+          />
         </Link>
       </div>
 
@@ -189,8 +198,8 @@ export function NavigationDrawer({
       {/* Footer */}
       <div className="border-t p-4">
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-            <span className="text-primary font-semibold text-sm">
+          <div className="w-10 h-10 bg-brand-blue/10 rounded-full flex items-center justify-center">
+            <span className="text-brand-blue font-semibold text-sm">
               {userName
                 .split(" ")
                 .map((n) => n[0])
@@ -208,8 +217,8 @@ export function NavigationDrawer({
         {subscriptionStatus && (
           <div className="mb-3">
             <Badge
-              variant={subscriptionStatus === "active" ? "success" : "warning"}
-              className="text-xs"
+              variant={subscriptionStatus === "active" ? "default" : "secondary"}
+              className={subscriptionStatus === "active" ? "bg-green-500" : ""}
             >
               {subscriptionStatus === "active" ? "Active" : subscriptionStatus}
             </Badge>
@@ -243,10 +252,13 @@ export function NavigationDrawer({
         <SheetContent side="left" className="w-64 p-0">
           <SheetHeader className="p-4 border-b">
             <SheetTitle className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-tradestock-500 to-tradestock-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">TS</span>
-              </div>
-              <span>TradeStock</span>
+              <Image
+                src="/logo.png"
+                alt="TradeStock"
+                width={120}
+                height={28}
+                className="h-7 w-auto"
+              />
             </SheetTitle>
           </SheetHeader>
           <div className="h-[calc(100vh-80px)]">

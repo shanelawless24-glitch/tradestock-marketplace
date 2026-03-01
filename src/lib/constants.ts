@@ -2,8 +2,8 @@
 // APPLICATION CONSTANTS
 // ============================================
 
-export const APP_NAME = "TradeStock Marketplace";
-export const APP_TAGLINE = "Ireland's Premier B2B Motor Trading Platform";
+export const APP_NAME = "TradeStock";
+export const APP_TAGLINE = "The B2B Dealership Marketplace";
 
 // Launch Date - March 30, 2026 (Europe/Dublin)
 export const LAUNCH_DATE = new Date("2026-03-30T00:00:00+01:00");
@@ -99,12 +99,19 @@ export const TICKET_PRIORITIES = [
   { value: "urgent", label: "Urgent" },
 ] as const;
 
+// Public Navigation Items
+export const PUBLIC_NAV_ITEMS = [
+  { href: "/how-it-works", label: "How It Works" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/contact", label: "Contact Us" },
+] as const;
+
 // Navigation Items
 export const NAV_ITEMS = {
   DEALER: [
     { href: "/dealer/dashboard", label: "Dashboard", icon: "LayoutDashboard" },
-    { href: "/dealer/stock", label: "My Stock", icon: "Car" },
-    { href: "/dealer/browse", label: "Browse Stock", icon: "Search", requiresLaunch: true },
+    { href: "/dealer/list-vehicle", label: "List Vehicle", icon: "Car" },
+    { href: "/dealer/browse", label: "Browse Vehicles", icon: "Search", requiresLaunch: true },
     { href: "/dealer/dealers", label: "Dealerships", icon: "Users", requiresLaunch: true },
     { href: "/dealer/messages", label: "Messages", icon: "MessageSquare", requiresLaunch: true },
     { href: "/dealer/saved", label: "Saved", icon: "Bookmark" },
@@ -123,13 +130,15 @@ export const NAV_ITEMS = {
   ],
   ADMIN: [
     { href: "/admin/dashboard", label: "Dashboard", icon: "LayoutDashboard" },
-    { href: "/admin/dealerships", label: "Dealerships", icon: "Building2" },
-    { href: "/admin/sdrs", label: "SDRs", icon: "Users" },
-    { href: "/admin/subscriptions", label: "Subscriptions", icon: "CreditCard" },
+    { href: "/admin/launch-control", label: "Launch Control", icon: "Rocket" },
+    { href: "/admin/pending-vehicles", label: "Pending Vehicles", icon: "Clock" },
+    { href: "/admin/applications", label: "Applications", icon: "FileText" },
+    { href: "/admin/dealers", label: "Dealers", icon: "Building2" },
     { href: "/admin/listings", label: "Listings", icon: "Car" },
-    { href: "/admin/support", label: "Support Tickets", icon: "HelpCircle" },
-    { href: "/admin/audit", label: "Audit Logs", icon: "FileText" },
-    { href: "/admin/settings", label: "Settings", icon: "Settings" },
+    { href: "/admin/messages", label: "Messages", icon: "MessageSquare" },
+    { href: "/admin/offers", label: "Offers & Deals", icon: "Tag" },
+    { href: "/admin/billing", label: "Billing", icon: "CreditCard" },
+    { href: "/admin/audit", label: "Audit Log", icon: "Shield" },
   ],
 } as const;
 
